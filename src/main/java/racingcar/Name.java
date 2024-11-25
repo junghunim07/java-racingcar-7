@@ -2,11 +2,15 @@ package racingcar;
 
 public class Name {
 
-    String value;
+    private final String value;
 
-    Name(String value) {
+    Name(final String value) {
         validate(value);
         this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     private void validate(String name) {

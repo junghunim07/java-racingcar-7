@@ -15,7 +15,7 @@ public class NameTest {
 
         Name name = new Name(value);
 
-        assertThat(name.value).isEqualTo(value);
+        assertThat(name.getValue()).isEqualTo(value);
     }
 
     @DisplayName("6자 이상일 경우 예외를 발생시킨다.")
