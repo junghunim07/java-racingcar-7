@@ -9,8 +9,12 @@ public class Car {
     private int position;
 
     Car(final Name name) {
+        this(name, 0);
+    }
+
+    Car(final Name name, final int position) {
         this.name = name;
-        this.position = 0;
+        this.position = position;
     }
 
     public void move(int condition) {
