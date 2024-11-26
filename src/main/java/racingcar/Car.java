@@ -4,11 +4,13 @@ public class Car {
 
     private static final int MOVE_THRESHOLD = 4;
     private static final int STEP = 1;
+    private static final String POSITION_SIGNATURE = "-";
+    private static final String FORMAT = "%s : %s";
 
     private final Name name;
     private int position;
 
-    Car(final Name name) {
+    public Car(final Name name) {
         this(name, 0);
     }
 
@@ -23,8 +25,16 @@ public class Car {
         }
     }
 
+    public Name getName() {
+        return name;
+    }
+
     public int getPosition() {
         return position;
+    }
+
+    public boolean isEqualPosition(int target) {
+        return position == target;
     }
 
     @Override
@@ -35,5 +45,11 @@ public class Car {
     @Override
     public int hashCode() {
         return name.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return String.format(FORMAT, name,
+                POSITION_SIGNATURE.repeat(position));
     }
 }

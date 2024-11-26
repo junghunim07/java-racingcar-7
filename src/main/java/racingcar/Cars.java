@@ -1,24 +1,40 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Cars {
 
     private final List<Car> cars;
 
-    Cars(final List<Car> cars) {
+    public Cars(final List<Car> cars) {
         validate(cars);
         this.cars = cars;
     }
 
-    public List<Car> findWinner() {
+    public void moveCars() {
+        cars.forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
+    }
+
+    public List<Name> findWinner() {
         return cars.stream()
-                .filter(car -> car.getPosition() == findMaxPosition())
+                .filter(car -> car.isEqualPosition(findMaxPosition()))
+                .map(Car::getName)
                 .toList();
     }
 
     public List<Car> getCars() {
         return cars;
+    }
+
+    @Override
+    public String toString() {
+        return String.join(
+                "\n",
+                cars.stream()
+                        .map(Car::toString)
+                        .toList()
+        );
     }
 
     private int findMaxPosition() {

@@ -4,7 +4,7 @@ public class Name {
 
     private final String value;
 
-    Name(final String value) {
+    public Name(final String value) {
         validate(value);
         this.value = value;
     }
@@ -38,5 +38,10 @@ public class Name {
     @Override
     public int hashCode() {
         return value.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }
