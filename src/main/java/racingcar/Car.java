@@ -26,4 +26,14 @@ public class Car {
     public int getPosition() {
         return position;
     }
+
+    @Override
+    public boolean equals(final Object o) {
+        return name.equals(((Car) o).name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
 }

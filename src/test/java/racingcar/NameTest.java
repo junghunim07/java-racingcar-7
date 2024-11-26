@@ -2,6 +2,7 @@ package racingcar;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -30,5 +31,14 @@ public class NameTest {
     void 이름_공백_예외() {
         assertThatThrownBy(() -> new Name(""))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("같은 이름 판별")
+    @Test
+    void 같은_이름_판별() {
+        Name name1 = new Name("자바");
+        Name name2 = new Name("자바");
+
+        assertEquals(name1, name2);
     }
 }

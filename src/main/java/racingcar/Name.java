@@ -29,4 +29,14 @@ public class Name {
             throw new IllegalArgumentException("이름은 공백일 수 없습니다.");
         }
     }
+
+    @Override
+    public boolean equals(final Object o) {
+        return value.equals(((Name) o).value);
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
 }
